@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  background-image: linear-gradient(
+      rgba(23, 23, 26, 0.52),
+      rgba(26, 25, 25, 0.73)
+    ),
+    url("https://static.pexels.com/photos/248515/pexels-photo-248515.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: rgb(207, 203, 203);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  line-height: 1.5;
+  font-size: 22px;
+}
+
+.title {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+.description {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  color: rgb(207, 203, 203);
+  background-color: rgb(51, 51, 51);
+  text-decoration: none;
+  border: 1px solid #666666;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+.development-description {
+  background-color: #eaeaea;
+  text-align: center;
+  padding: 10px;
+}
+
+.development-description h2 {
+  padding-top: 15px;
+}
+
+.development-description p {
+  columns: 2;
+  padding: 30px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #333333;
+  gap: 1em;
+}
+
+.card {
+	width: 300px;
+	height: max-content;
+	background-color: white;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.card-description {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-description p {
+  padding: 15px;
+}
