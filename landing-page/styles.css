@@ -73,7 +73,6 @@ header {
 .cards {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   padding: 20px;
   width: 100%;
   background-color: #333333;
@@ -83,6 +82,7 @@ header {
 
 .card {
   width: 300px;
+  min-width: min-content;
   background-color: white;
 }
 
@@ -97,4 +97,22 @@ header {
 
 .card-description p {
   padding: 15px;
+}
+
+@media only screen and (max-width: 700px) {
+  .development-description p {
+    columns: 1;
+  }
+
+  .cards {
+    display: block;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card + .card {
+	  margin-top: 15px;
+  }
 }
