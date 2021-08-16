@@ -99,6 +99,59 @@ header {
   padding: 15px;
 }
 
+.additional-info {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+.additional-info h2,
+.contact h2,
+.about h2 {
+  margin-bottom: 15px;
+}
+
+.contact {
+  text-align: center;
+  background-color: #2690d4;
+  color: white;
+  padding: 20px;
+  width: 100%;
+}
+
+.contact a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  margin: 15px;
+}
+
+.about {
+  text-align: center;
+  background-color: #333333;
+  color: white;
+  padding: 20px;
+  width: 100%;
+}
+
+.contact-and-about {
+  display: flex;
+}
+
+footer {
+  columns: 2;
+  text-align: center;
+  background-color: #000000;
+  color: rgb(207, 203, 203);
+  padding: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #0d69cd;
+}
+
 @media only screen and (max-width: 700px) {
   .development-description p {
     columns: 1;
@@ -113,6 +166,14 @@ header {
   }
 
   .card + .card {
-	  margin-top: 15px;
+    margin-top: 15px;
+  }
+
+  .contact-and-about {
+    display: block;
+  }
+
+  footer {
+    columns: 1;
   }
 }
