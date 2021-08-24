@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="icon" href="public/favicon.ico" type="image/icon type" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="players">
+        <div class="player-x">
+          <p>Player X</p>
+          <p id="x-wins">0</p>
+        </div>
+        <div class="player-o">
+          <p>Player O</p>
+          <p id="o-wins">0</p>
+        </div>
+        <div class="tie">
+          <p>Tie</p>
+          <p id="tie">0</p>
+        </div>
+      </div>
+      <p id="turn">X turn</p>
+    </header>
+    <main>
+      <div class="board">
+        <div class="row">
+          <button
+            id="block-0"
+            data-cell-index="0"
+            class="block"
+            onclick="play(id)"
+          ></button>
+          <button
+            id="block-1"
+            data-cell-index="1"
+            class="block"
+            onclick="play(id)"
+          ></button>
+          <button
+            id="block-2"
+            data-cell-index="2"
+            class="block"
+            onclick="play(id)"
+          ></button>
+        </div>
+        <div class="row">
+          <button
+            id="block-3"
+            data-cell-index="3"
+            class="block"
+            onclick="play(id)"
+          ></button>
+          <button
+            id="block-4"
+            data-cell-index="4"
+            class="block"
+            onclick="play(id)"
+          ></button>
+          <button
+            id="block-5"
+            data-cell-index="5"
+            class="block"
+            onclick="play(id)"
+          ></button>
+        </div>
+        <div class="row">
+          <button
+            id="block-6"
+            data-cell-index="6"
+            class="block"
+            onclick="play(id)"
+          ></button>
+          <button
+            id="block-7"
+            data-cell-index="7"
+            class="block"
+            onclick="play(id)"
+          ></button>
+          <button
+            id="block-8"
+            data-cell-index="8"
+            class="block"
+            onclick="play(id)"
+          ></button>
+        </div>
+      </div>
+      <h2 id="winner">No winner yet!</h2>
+      <div class="buttons">
+        <button class="btn" onclick="continueGame()">Continue</button>
+        <button class="btn" onclick="reset()">Reset</button>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
