@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Rubik;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #293354;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 50vw;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px 0 40px 0;
+  background-color: white;
+  color: black;
+}
+
+.weather-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  background-color: #f4f9ff;
+  padding: 20px;
+}
+
+.temperature-section {
+  font-size: 4em;
+  cursor: pointer;
+}
+
+.temperature-unit {
+  font-size: 0.5em;
+}
