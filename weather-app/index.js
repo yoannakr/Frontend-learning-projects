@@ -1,4 +1,4 @@
-const apiKey = "c21c760b8ea00d5bbb7be3911b568265";
+const apiKey = config.API_KEY;
 
 const temperatureSectionElement = document.querySelector(
   ".temperature-section"
@@ -8,6 +8,8 @@ const temperatureUnitElement = document.querySelector(".temperature-unit");
 const descriptionElement = document.querySelector(".description");
 const locationElement = document.querySelector(".location");
 const iconElement = document.querySelector(".icon");
+const dateElement = document.querySelector(".date");
+const dayElement = document.querySelector(".day");
 
 const temperatureUnits = {
   CELSIUS: "C",
@@ -21,6 +23,20 @@ const weather = {
   location: undefined,
   icon: "unknown",
 };
+
+function setDate() {
+  const date = new Date();
+  const optionsForDate = { month: "short", day: "numeric", year: "numeric" };
+  const optionsForDay = { weekday: "long" };
+  const formatedDate = new Intl.DateTimeFormat("en-US", optionsForDate).format(
+    date
+  );
+  const formatedDay = new Intl.DateTimeFormat("en-US", optionsForDay).format(
+    date
+  );
+  dateElement.textContent = formatedDate;
+  dayElement.textContent = formatedDay;
+}
 
 function kelvinToCelsius(temperature) {
   return Math.floor(temperature - 273.15);
@@ -58,7 +74,7 @@ function displayCurrentWeather() {
 }
 
 function getCurrentWeather(latitude, longitude) {
-  const api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${apiKey}`;
+  const api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${apiKey}`;
   fetch(api)
     .then((response) => response.json())
     .then((data) => {
@@ -83,6 +99,7 @@ function showError(error) {
 }
 
 window.addEventListener("load", () => {
+  setDate();
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(setPosition, showError);
   } else {
