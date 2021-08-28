@@ -16,9 +16,6 @@ body {
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
   width: 50vw;
   max-width: 500px;
   text-align: center;
@@ -26,6 +23,11 @@ body {
   padding: 20px 0 40px 0;
   background-color: white;
   color: black;
+}
+
+.date,
+.day {
+  margin-bottom: 10px;
 }
 
 .weather-section {
@@ -45,4 +47,13 @@ body {
 
 .temperature-unit {
   font-size: 0.5em;
+}
+
+.notification-section {
+  display: none;
+  background-color: coral;
+  color: white;
+  opacity: 0.6;
+  margin-top: 10px;
+  padding: 10px;
 }

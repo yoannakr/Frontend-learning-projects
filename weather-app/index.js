@@ -10,6 +10,9 @@ const locationElement = document.querySelector(".location");
 const iconElement = document.querySelector(".icon");
 const dateElement = document.querySelector(".date");
 const dayElement = document.querySelector(".day");
+const notificationSectionElement = document.querySelector(
+  ".notification-section"
+);
 
 const temperatureUnits = {
   CELSIUS: "C",
@@ -94,15 +97,18 @@ function setPosition(position) {
   getCurrentWeather(latitude, longitude);
 }
 
-function showError(error) {
-  console.log(error.message);
+function showError(message) {
+  notificationSectionElement.style.display = "block";
+  notificationSectionElement.textContent = message;
 }
 
 window.addEventListener("load", () => {
   setDate();
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(setPosition, showError);
+    navigator.geolocation.getCurrentPosition(setPosition, (error) => {
+      showError(error.message);
+    });
   } else {
-    //browser not support geolocation
+    showError("Browser doesn't support Geolocation!");
   }
 });
