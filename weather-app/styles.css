@@ -32,9 +32,9 @@ main {
   top: 0;
   padding: 10px;
   background-color: transparent;
-  color: lightgray;
+  color: gray;
   border-radius: 5px;
-  border: 1px solid lightgray;
+  border: 1px solid gray;
   cursor: pointer;
 }
 

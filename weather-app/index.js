@@ -13,6 +13,8 @@ const notificationSectionElement = document.querySelector(
 );
 const searchNavBtnElement = document.querySelector(".search-nav-btn");
 const searchSectionElement = document.querySelector(".search-section");
+const searchButtonElement = document.querySelector(".search-btn");
+const cityNameInputElement = document.querySelector(".city-name-input");
 
 let isSearchBarShown = false;
 
@@ -113,3 +115,16 @@ function showSearchSection() {
 }
 
 searchNavBtnElement.addEventListener("click", showSearchSection);
+
+function getCityInformation(cityName) {
+  const api = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`;
+  fetch(api)
+    .then((response) => response.json())
+    .then((data) => {
+      getCurrentWeather(data[0].lat, data[0].lon);
+    });
+}
+
+searchButtonElement.addEventListener("click", () =>
+  getCityInformation(cityNameInputElement.value)
+);
