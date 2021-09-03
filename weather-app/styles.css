@@ -8,26 +8,14 @@
 }
 
 body {
+  background: linear-gradient(white, rgb(51, 173, 255), white);
+}
+
+main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #293354;
-}
-
-.container {
-  width: 50vw;
-  max-width: 500px;
-  text-align: center;
-  border-radius: 5px;
-  padding: 20px 0 40px 0;
-  background-color: white;
-  color: black;
-}
-
-.date,
-.day {
-  margin-bottom: 10px;
 }
 
 .weather-section {
@@ -35,14 +23,91 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   gap: 1em;
-  background-color: #f4f9ff;
-  padding: 20px;
+}
+
+.search-nav-btn {
+  position: absolute;
+  top: 0;
+  padding: 10px;
+  background-color: transparent;
+  color: lightgray;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  cursor: pointer;
+}
+
+.search-section {
+  display: none;
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  padding-top: 15px;
+  text-align: center;
+  width: 30vw;
+  min-width: 250px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.slide-in {
+  animation: slidein 2s forwards;
+}
+
+.slide-out {
+  animation: slideout 2s forwards;
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideout {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.city-name-input,
+.search-btn {
+  margin-top: 10px;
+  padding: 8px;
+  border: transparent;
+}
+
+.city-name-input {
+  position: relative;
+  outline: none;
+  width: 70%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.search-btn {
+  position: absolute;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: white;
+  color: #66c2ff;
+  cursor: pointer;
 }
 
 .temperature-section {
   font-size: 4em;
   cursor: pointer;
+}
+
+.location {
+  font-size: 2em;
 }
 
 .temperature-unit {
@@ -54,6 +119,6 @@ body {
   background-color: coral;
   color: white;
   opacity: 0.6;
-  margin-top: 10px;
+  margin-top: 1px;
   padding: 10px;
 }

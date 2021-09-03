@@ -8,11 +8,13 @@ const temperatureUnitElement = document.querySelector(".temperature-unit");
 const descriptionElement = document.querySelector(".description");
 const locationElement = document.querySelector(".location");
 const iconElement = document.querySelector(".icon");
-const dateElement = document.querySelector(".date");
-const dayElement = document.querySelector(".day");
 const notificationSectionElement = document.querySelector(
   ".notification-section"
 );
+const searchNavBtnElement = document.querySelector(".search-nav-btn");
+const searchSectionElement = document.querySelector(".search-section");
+
+let isSearchBarShown = false;
 
 const temperatureUnits = {
   CELSIUS: "C",
@@ -26,20 +28,6 @@ const weather = {
   location: undefined,
   icon: "unknown",
 };
-
-function setDate() {
-  const date = new Date();
-  const optionsForDate = { month: "short", day: "numeric", year: "numeric" };
-  const optionsForDay = { weekday: "long" };
-  const formatedDate = new Intl.DateTimeFormat("en-US", optionsForDate).format(
-    date
-  );
-  const formatedDay = new Intl.DateTimeFormat("en-US", optionsForDay).format(
-    date
-  );
-  dateElement.textContent = formatedDate;
-  dayElement.textContent = formatedDay;
-}
 
 function kelvinToCelsius(temperature) {
   return Math.floor(temperature - 273.15);
@@ -103,7 +91,6 @@ function showError(message) {
 }
 
 window.addEventListener("load", () => {
-  setDate();
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(setPosition, (error) => {
       showError(error.message);
@@ -112,3 +99,17 @@ window.addEventListener("load", () => {
     showError("Browser doesn't support Geolocation!");
   }
 });
+
+function showSearchSection() {
+  if (isSearchBarShown) {
+    searchSectionElement.classList.remove("slide-in");
+    searchSectionElement.classList.add("slide-out");
+  } else {
+    searchSectionElement.classList.remove("slide-out");
+    searchSectionElement.classList.add("slide-in");
+    searchSectionElement.style.display = "block";
+  }
+  isSearchBarShown = !isSearchBarShown;
+}
+
+searchNavBtnElement.addEventListener("click", showSearchSection);

@@ -7,12 +7,14 @@
     <title>Weather App</title>
     <link rel="icon" href="public/favicon.ico" type="image/icon type" />
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <div class="container">
-      <h2 class="date">-</h2>
-      <h3 class="day">-</h3>
-      <div class="notification-section"></div>
+    <div class="notification-section"></div>
+    <main>
       <div class="weather-section">
         <img class="icon" src="public/icons/unknown.png" />
         <p class="temperature-section">
@@ -21,10 +23,20 @@
             >C</span
           >
         </p>
-        <p class="description">-</p>
         <p class="location">-</p>
+        <p class="description">-</p>
       </div>
-    </div>
+      <div class="search-section">
+        <h3>Search Weather</h3>
+        <input type="text" placeholder="City, State" class="city-name-input" />
+        <button type="button" class="search-btn">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </main>
+    <button type="button" class="search-nav-btn">
+      <i class="fa fa-search"></i>
+    </button>
     <script src="config.js"></script>
     <script src="index.js"></script>
   </body>
