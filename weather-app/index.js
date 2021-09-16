@@ -90,6 +90,11 @@ function setPosition(position) {
 function showError(message) {
   notificationSectionElement.style.display = "block";
   notificationSectionElement.textContent = message;
+
+  setInterval(() => {
+    notificationSectionElement.style.display = "none";
+    notificationSectionElement.textContent = "";
+  }, 3000);
 }
 
 window.addEventListener("load", () => {
@@ -121,7 +126,14 @@ function getCityInformation(cityName) {
   fetch(api)
     .then((response) => response.json())
     .then((data) => {
-      getCurrentWeather(data[0].lat, data[0].lon);
+      if (data.cod === "404") {
+        showError("City Not found");
+      } else {
+        getCurrentWeather(data[0].lat, data[0].lon);
+      }
+    })
+    .catch((error) => {
+      showError(error.message);
     });
 }
 
