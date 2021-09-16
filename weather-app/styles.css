@@ -29,7 +29,8 @@ main {
 
 .search-nav-btn {
   position: absolute;
-  top: 0;
+  top: 10;
+  z-index: 1;
   padding: 10px;
   background-color: transparent;
   color: gray;
@@ -52,11 +53,11 @@ main {
 }
 
 .slide-in {
-  animation: slidein 2s forwards;
+  animation: slidein 0.5s forwards;
 }
 
 .slide-out {
-  animation: slideout 2s forwards;
+  animation: slideout 0.5s forwards;
 }
 
 @keyframes slidein {

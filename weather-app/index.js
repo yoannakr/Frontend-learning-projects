@@ -94,7 +94,7 @@ function showError(message) {
   setInterval(() => {
     notificationSectionElement.style.display = "none";
     notificationSectionElement.textContent = "";
-  }, 3000);
+  }, 5000);
 }
 
 window.addEventListener("load", () => {
