@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import DisplayStars from './components/DisplayStars';
+import DisplayNumbers from './components/DisplayNumbers';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div>
+			<p>Pick 1 or more numbers that sum to the number of stars</p>
+			<div className="container">
+				<DisplayStars />
+				<DisplayNumbers />
+			</div>
+			<p className="timer">Time Remaining: 0</p>
+		</div>
+	);
 }
 
 export default App;
