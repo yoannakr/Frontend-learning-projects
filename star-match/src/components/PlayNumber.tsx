@@ -1,9 +1,13 @@
 import React from "react";
 import "../../src/App.css";
 
-const PlayNumber = () => {
+interface IProps {
+	num: number;
+}
+
+const PlayNumber = ({ num }: IProps) => {
 	return (
-		<button className="number">2</button>
+		<button className="number">{num}</button>
 	);
 };
 
