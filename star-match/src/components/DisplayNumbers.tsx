@@ -1,17 +1,19 @@
 import React from "react";
-import "../../src/App.css";
-import PlayNumber from "./PlayNumber";
+// import "../../src/App.css";
+// import PlayNumber from "../components/PlayNumber"
 
-interface IProps {
-	numbers: Array<number>;
-}
+// interface IProps {
+// 	numbers: Array<number>;
+// 	onClick: any;
+// }
 
-const DisplayNumbers = ({ numbers }: IProps) => {
-	return (
-		<div className="box">
-			{numbers.map(n => <PlayNumber key={n} num={n} />)}
-		</div>
-	);
-};
+// const DisplayNumbers = ({ numbers, onClick }: IProps) => {
 
-export default DisplayNumbers;
+// 	return (
+// 		<div className="box">
+// 			{numbers.map(num => <PlayNumber key={num} num={num} onClick={onClick} />)}
+// 		</div>
+// 	);
+// };
+
+// export default DisplayNumbers;
