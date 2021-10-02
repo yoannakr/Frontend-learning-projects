@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "../App.css"
 import DisplayStars from './DisplayStars';
 import PlayNumber from './PlayNumber';
@@ -10,11 +10,19 @@ const StarMatch = () => {
 	const [countOfStars, setCountOfStars] = useState<number>(randomSumIn(numbers, 9));
 	const [usedNumbers, setUsedNumbers] = useState<Array<number>>([]);
 	const [choosenNumbers, setChoosenNumbers] = useState<Array<number>>([]);
+	const [secondsLeft, setSecondsLeft] = useState<number>(10);
+
+	useEffect(() => {
+		setTimeout(() => {
+			if (usedNumbers.length !== 9 && secondsLeft !== 0)
+				setSecondsLeft(secondsLeft - 1);
+		}, 1000);
+	});
 
 	const candidatesAreWrong = sum(choosenNumbers) > countOfStars;
 
 	const addNum = (num: number, status: string) => {
-		if (status === "used") {
+		if (secondsLeft === 0 || status === "used") {
 			return;
 		}
 
@@ -48,14 +56,15 @@ const StarMatch = () => {
 		setUsedNumbers([]);
 		setCountOfStars(randomSumIn(numbers, 9));
 		setChoosenNumbers([]);
+		setSecondsLeft(10);
 	};
 
 	return (
 		<div>
 			<p>Pick 1 or more numbers that sum to the number of stars</p>
 			<div className="container">
-				{usedNumbers.length === 9
-					? <GameStatus message="Nice" playAgain={resetGame} />
+				{usedNumbers.length === 9 || secondsLeft === 0
+					? <GameStatus isWin={usedNumbers.length === 9} playAgain={resetGame} />
 					: <DisplayStars countOfStars={countOfStars} />}
 				<div className="box">
 					{numbers.map(num =>
@@ -67,7 +76,7 @@ const StarMatch = () => {
 					)}
 				</div>
 			</div>
-			<p className="timer">Time Remaining: 0</p>
+			<p className="timer">Time Remaining: {secondsLeft}</p>
 		</div>
 	);
 }
